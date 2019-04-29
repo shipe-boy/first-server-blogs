@@ -1,0 +1,39 @@
+.blog-header.layui-bg-cyan
+      .layui-container
+        ul.layui-nav.layui-bg-cyan
+          li.layui-nav-item#haha
+            a(href="/")
+              i.layui-icon.layui-icon-home 
+              | 首页
+          li.layui-nav-item
+            a(href="/") Web
+          li.layui-nav-item
+            a(href="/") 大数据
+          li.layui-nav-item
+            a(href="/") Java
+          li.layui-nav-item
+            a(href="/") C++
+          li.layui-nav-item
+            a(href="/") Python
+          li.layui-nav-item
+            a(href="/") 更多
+        //- 用户登录按钮
+        ul.layui-nav.blog-user.layui-bg-cyan
+
+          if session && !session.isNew
+            li.layui-nav-item
+              a(href=session.role > 1 ? "/admin/user": "/admin/article") 个人中心
+                //- span.layui-badge-dot
+            li.layui-nav-item
+              a(href="")
+                //- 用户测试头像
+                img(src=session.avatar).layui-nav-img
+                span= session.username
+              dl.layui-nav-child
+                dd
+                  a(href="/user/logout") 退出登录
+          else
+            li.layui-nav-item
+              a(href="/user/login") 登录
+            li.layui-nav-item
+              a(href="/user/reg") 注册

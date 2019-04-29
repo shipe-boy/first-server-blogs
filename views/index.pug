@@ -1,0 +1,60 @@
+extends ./layout/layout
+
+block css
+  link(rel="stylesheet", href="/css/index.css")
+//- 
+  artList
+    头像
+    tips
+    文章url
+    作者
+    时间
+    评论数
+
+block contents
+  include ./layout/tag
+  
+  .layui-container.main
+    .layui-row.layui-col-space15
+      //- 文章列表
+      .layui-col-md8
+        ul.article-list
+          //- li  
+          //-   a.list-face
+          //-     img(src="/avatar/img1.jpg", alt="乌拉")
+          //-   h2
+          //-     a.layui-badge 分类
+          //-     a.articlt-title.ellipsis(href=`/article/427322`) 文章标题
+          //-   .list-info
+          //-     a 用户名
+          //-     span 2018-12-01
+          //-     span.list-reply
+          //-       i(title="评论").layui-icon.layui-icon-dialogue
+          
+          each info in artList
+            li
+              a.list-face
+                img(src=info.author.avatar, alt=info.author)
+              h2
+                a.layui-badge= info.tips
+                a.articlt-title.ellipsis(href=`/article/${info._id}`)= info.title
+              .list-info
+                a= info.author.username
+                span= info.createTime.toLocaleString()
+                span.list-reply
+                  i(title="评论").layui-icon.layui-icon-dialogue
+                  = info.commentNum
+        include ./layout/laypage.pug
+        
+      //- 右侧公告
+      include ./layout/right_tag
+
+block scripts
+  script(src="/js/index.js")
+  
+    
+    
+    
+    
+
+

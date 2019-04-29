@@ -1,0 +1,40 @@
+extends ./layout/layout
+
+block contents
+  p(style="margin:200px;font-size:28px;color:#f60;", class="tips")
+
+block scripts
+  //- 登录成功，返回根路由
+  script.   
+    //- console.log(#{status});//非对象
+    let val = null; 
+    let status = "#{status}",
+      oTips = document.getElementsByClassName("tips")[0];
+    switch(status){
+      case "regSuccess" :
+        oTips.innerHTML = val = "注册成功，马上跳转登录页";
+        break;
+      case "regFail" :
+        oTips.innerHTML = val = "用户名已存在，请登录";
+        break;
+      case "regError" :
+        oTips.innerHTML = val = "注册失败，请重新注册";
+        break;
+      case "logSuccess" :
+        oTips.innerHTML = val = "登录成功";
+        break;
+      case "logError" :
+        oTips.innerHTML = val = "密码错误，请重新登录";
+        break;
+      case "logNot" :
+        oTips.innerHTML = val = "用户名不存在，请注册";
+        break;
+      case "logFail" :
+        oTips.innerHTML = val = "登录失败，重新登录";
+        break;
+    }
+    setTimeout(() => {
+      location.href = "#{url}";
+    }, 1000)
+  //- 弹框组件  
+  script(src="/js/dialog.js")

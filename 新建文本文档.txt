@@ -1,0 +1,7 @@
+数据库启动： mongod --dbpath  .\db
+
+
+项目启动： node app.js
+
+
+端口： 3000

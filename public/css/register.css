@@ -1,0 +1,27 @@
+/* 主要内容区域设置最小高度 */
+#main .layui-container{
+  min-height: 500px;
+  margin-bottom: 15px;
+  margin-top: 100px;
+  padding: 0;
+  border-radius: 2px;
+  background-color: #fff;
+}
+#main .layui-tab-card {
+    border-width: 1px;
+    border-style: solid;
+    border-bottom-width: 0;
+    box-shadow: none;
+}
+#main .layui-tab-title{
+  background-color: #e4e1e1 !important;
+}
+#main .layui-form-item{
+  margin-top: 24px;
+}
+.layui-input, .layui-input-block{
+  width: 220px;
+}
+.layui-btn~.layui-btn{
+  float: right;
+}
